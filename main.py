@@ -22,7 +22,7 @@ def check_server_connection(server: str) -> bool:
     ip, port = server.split(":")
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(5)
+    s.settimeout(3)
     result = s.connect_ex((ip, int(port)))
     if result == 0:
         return True
