@@ -37,7 +37,7 @@ def check_launcher_connection():
     }
     response = requests.get(SERVERS.get('launcher'), headers=headers)
     if response.status_code == 200:
-        status = json.loads(response.text)
+        status = json.loads(response.text, strict=False)
         if status.get('status') == '0':
             server_status['launcher'].update(status='up')
         else:
@@ -69,7 +69,7 @@ def run_connection_tests():
 
 def main():
     run_connection_tests()
-    data = json.dumps(server_status, indent=2)
+    data = json.dumps(server_status, indent=2, ensure_ascii=False)
     with open("./status.json", "w+") as f:
         f.write(data)
 
