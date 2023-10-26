@@ -1,10 +1,12 @@
 ---
 name: "run-uptime-monitor"
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+# This runs too often and is clogging up the commit history on my profile.
+# Disabling this right now.
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'
+#   workflow_dispatch:
 
 jobs:
   run-monitor:
